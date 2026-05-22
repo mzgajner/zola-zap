@@ -96,7 +96,7 @@ hr{border:0;border-top:1px dashed;clear:both;margin-bottom:1.5rem}
     </main>
     <hr>
     <footer class="s">
-        <span>© {{ config.title }} {{ now() | date(format="%Y") }}</span>
+        {% block footer_copyright %}<span>© {{ config.title }} {{ now() | date(format="%Y") }}</span>{% endblock %}
         {% if config.generate_feeds %}<span>{% if config.extra.inline_icons %}{{ icons::icon(name="rss.svg") }}{% else %}<img src="/icons/rss.svg" alt="">{% endif %} Feeds: <a href="{{ get_url(path='atom.xml',trailing_slash=false)|safe }}">Atom</a> · <a href="{{ get_url(path='rss.xml',trailing_slash=false)|safe }}">RSS</a></span>{% endif %}
     </footer>
     {% block body_end -%}
